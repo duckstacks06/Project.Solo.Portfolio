@@ -10,7 +10,7 @@ parallax(box2, speedFast);
 function parallax(box, speed){
     document.addEventListener("mousemove", (event) => {
     const x = (innerWidth / 2 - event.clientX) / speed;
-    const y = (innerWidth / 2 - event.clientY) / speed;  
+    const y = (innerHeight / 2 - event.clientY) / speed;  
     box.style.transform = `translate(${x}px, ${y}px)`
     });
 }
