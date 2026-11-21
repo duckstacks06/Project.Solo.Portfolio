@@ -1,13 +1,16 @@
-const box = document.querySelector(".test-box");
-let box1X = 0;
-let box2X  = 0;
+const box1 = document.querySelector(".test-box1");
+const box2 = document.querySelector(".test-box2");
 
-parallax1(box1X, box2X);
+let speedSlow = 20;
+let speedFast = 10;
 
-function parallax1(x, y){
+parallax(box1, speedSlow);
+parallax(box2, speedFast);
+
+function parallax(box, speed){
     document.addEventListener("mousemove", (event) => {
-    x = window.innerWidth / 2 - event.clientX / 20;
-    y = window.innerHeight / 2 - event.clientY / 20;  
+    const x = (innerWidth / 2 - event.clientX) / speed;
+    const y = (innerWidth / 2 - event.clientY) / speed;  
     box.style.transform = `translate(${x}px, ${y}px)`
     });
 }
