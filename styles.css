@@ -31,6 +31,9 @@
     color: #100007;
     text-shadow: 2px 2px 4px rgba(19, 19, 19, 0.264);
     user-select: none;
+
+    animation-duration: 1s;
+    animation-name: sun-enter;
 }
 
 .sun-stroke{
@@ -43,13 +46,14 @@
 
 @keyframes sun-enter{
     0%{
-
+        scale: 0.1;
     }
-    75%{
-
+    90%{
+        scale: 1.2;
     }
     100%{
-        
+        scale: 1;
+        transform: rotate(360deg);
     }
 }
 
