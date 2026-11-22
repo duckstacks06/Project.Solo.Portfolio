@@ -12,6 +12,7 @@
     position: absolute; inset: 50%; translate: -50% -50%;
     background-color: #FFE45E;
     border-radius: 50%; 
+    border: none;
 
     z-index: 2;
 

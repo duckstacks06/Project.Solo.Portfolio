@@ -30,6 +30,7 @@ function parallax(box, speed){
     box.style.transform = `translate(${x}px, ${y}px)`
     });
 }
+
 sunButton.addEventListener("click", (event) => {
   console.log(`Click count: ${event.detail}`);
 });
