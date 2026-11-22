@@ -1,3 +1,58 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+.sky{
+    background-color: #9CCCE0;
+    position: relative; 
+    min-height: 100vh;
+}
+.sun{
+    /* div properties */
+    width: 10em;       
+    height: 10em;      
+    position: absolute; inset: 50%; translate: -50% -50%;   
+    background-color: #FFE45E;
+    border-radius: 50%; 
+
+    z-index: 2;
+
+    /* flex properties */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    gap: 0.1em;
+
+    /* text properties */
+    font-family: monospace;
+    font-weight: bold;
+    font-size: large;
+    letter-spacing: 0.05em;
+    color: #100007;
+    text-shadow: 2px 2px 4px rgba(19, 19, 19, 0.264);
+    user-select: none;
+}
+
+.sun-stroke{
+    width: 12em;       
+    height: 12em; 
+    background-color: #fade55;
+
+    z-index: 1;
+}
+
+@keyframes sun-enter{
+    0%{
+
+    }
+    75%{
+
+    }
+    100%{
+        
+    }
+}
+
 .surface{
     background-color: #9CCCE0;
     position: relative; 
@@ -6,20 +61,22 @@
 .test-box1{
     width: 5em;       
     height: 5em;      
-    position: absolute; top: 50%; left: 50%;    
+    position: absolute; top: 50%; left: 50%; 
+    translate: -50% -50%;
     background-color: #f0f0f0; 
 
-    translate: -50% -50%;
-    z-index: 1;  
+    z-index: 1;
+    overflow-x: clip;  
 }
 .test-box2{
     width: 10em;       
     height: 10em;      
-    position: absolute; top: 50%; left: 45%;    
+    position: absolute; top: 50%; left: 45%;
+    translate: -50% -50%;     
     background-color: #89b1c0; 
-
-    translate: -50% -50%;       
+      
     z-index: 2;
+    overflow-x: clip;
 }
 .text{
     /* div properties */
