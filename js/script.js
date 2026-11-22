@@ -2,8 +2,8 @@
 gsap.registerPlugin(ScrollTrigger);
 
 // var declarations
-let speedSlowest = 50;
-let speedSlow = 20;
+let speedSlow = 50;
+let speedMed = 20;
 let speedFast = 10;
 
 // selecting classes
@@ -17,21 +17,37 @@ const text = document.querySelector(".text");
 // gsap anims
 gsap.fromTo(".box-wrapper", 
   {
-    y: 50,
-    scale: 0.7,
-    opacity: 0.5
+    y: 25,
+    scale: 0.8,
   },
   { 
     y: 0,
     scale: 1,
-    opacity: 1,
     duration: 1,
     scrollTrigger: {
       trigger: ".surface", // Starts when the surface section enters view
       start: "20%, 80%",
       end: "80%, 20%",
       markers: true,
-      toggleActions: "restart none resume pause"
+      toggleActions: "restart pause resume pause"
+    }
+  }
+);
+gsap.fromTo(".text", 
+  {
+    y: 25,
+    scale: 0.8,
+  },
+  { 
+    y: 0,
+    scale: 1,
+    duration: 1,
+    scrollTrigger: {
+      trigger: ".surface", // Starts when the surface section enters view
+      start: "20%, 80%",
+      end: "80%, 20%",
+      markers: true,
+      toggleActions: "restart pause resume pause"
     }
   }
 );
@@ -42,16 +58,15 @@ gsap.fromTo(sun,
         scale: 1, 
         duration: 1.5, 
         ease: "elastic.out(1, 0.75)",
-        onComplete: () => {
-            parallax(sun, speedSlow);
-        }
     }
 );
 
 // initializes mouse parallax
-parallax(box1, speedFast);
-parallax(box2, speedFast);
-parallax(text, speedSlowest);
+parallax(box1, speedSlow);
+parallax(box2, speedMed);
+parallax(text, speedFast);
+
+parallax(sun, speedMed);
 
 // functions
 function parallax(box, speed){
