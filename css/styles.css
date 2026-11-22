@@ -97,7 +97,7 @@
 .test-box1{
     width: 5em;       
     height: 5em;      
-    position: absolute; top: 50%; left: 50%; 
+    position: absolute; top: 50%; left: 30%; 
     translate: -50% -50%;
     background-color: #f0f0f0; 
 

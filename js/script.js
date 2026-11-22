@@ -34,3 +34,9 @@ function parallax(box, speed){
 sunButton.addEventListener("click", (event) => {
   console.log(`Click count: ${event.detail}`);
 });
+
+// gsap
+ gsap.to(".test-box1", { 
+            rotation: 360,
+            duration: 2,
+})
