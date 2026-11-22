@@ -36,11 +36,14 @@ sunButton.addEventListener("click", (event) => {
 
 // gsap
 gsap.to(".test-box1", { 
-  rotation: 360,
-  duration: 2,
   scrollTrigger: {
     trigger: ".test-box1",
+    start: "20%, 80%",
+    end: "80%, 20%",
     markers: true,
-    scrub: true
-  }
+    toggleActions: "restart none resume pause"
+  },
+  x: -200,
+  rotation: 360,
+  duration: 2
 })
