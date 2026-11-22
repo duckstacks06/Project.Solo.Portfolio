@@ -28,17 +28,8 @@
     letter-spacing: 0.05em;
     color: #FFE45E;
     user-select: none;
-
-    /* anim properties */
-    animation-duration: 2s;
-    animation-name: sun-enter;
-    animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
-    animation-iteration-count: 1;
-    transition: scale 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 .sun:hover{
-    scale: 1.1;
-
     color: #100007;
     text-shadow: 2px 2px 4px rgba(19, 19, 19, 0.264);
 }
