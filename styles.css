@@ -6,10 +6,10 @@
     min-height: 100vh;
 }
 .sun{
-    /* div properties */
+    /* placement properties */
     width: 10em;       
     height: 10em;      
-    position: absolute; inset: 50%; translate: -50% -50%;   
+    position: absolute; inset: 50%; translate: -50% -50%;
     background-color: #FFE45E;
     border-radius: 50%; 
 
@@ -17,11 +17,8 @@
 
     /* flex properties */
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-
-    gap: 0.1em;
 
     /* text properties */
     font-family: monospace;
@@ -32,8 +29,15 @@
     text-shadow: 2px 2px 4px rgba(19, 19, 19, 0.264);
     user-select: none;
 
-    animation-duration: 1s;
+    /* anim properties */
+    animation-duration: 2s;
     animation-name: sun-enter;
+    animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+    animation-iteration-count: 1;
+    transition: scale 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+.sun:hover{
+    scale: 1.1;
 }
 
 .sun-stroke{
@@ -44,17 +48,26 @@
     z-index: 1;
 }
 
+.rays{
+    /* placement properties */
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+
+    /* flex properties */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 @keyframes sun-enter{
-    0%{
-        scale: 0.1;
-    }
-    90%{
-        scale: 1.2;
-    }
-    100%{
-        scale: 1;
-        transform: rotate(360deg);
-    }
+    0% { scale: 0.1; }
+    90% { scale: 1.2; }
+    100% { scale: 1; }
+}
+@keyframes ray-rotate{
+    0% { transform: rotate(360deg); }
+    100% { transform: rotate(360deg); }
 }
 
 .surface{
@@ -83,7 +96,7 @@
     overflow-x: clip;
 }
 .text{
-    /* div properties */
+    /* placement properties */
     width: 30em;       
     height: 10em;      
     position: absolute; top: 50%; left: 50%; 
