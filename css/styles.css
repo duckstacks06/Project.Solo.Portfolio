@@ -3,7 +3,7 @@
 .sky{
     background-color: #9CCCE0;
     position: relative; 
-    min-height: 100vh;
+    min-height: 200vh;
 }
 .sun{
     /* placement properties */

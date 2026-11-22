@@ -1,3 +1,5 @@
+gsap.registerPlugin(ScrollTrigger);
+
 /*
 const box1 = document.querySelector(".test-box1");
 const box2 = document.querySelector(".test-box2");
@@ -36,7 +38,12 @@ sunButton.addEventListener("click", (event) => {
 });
 
 // gsap
- gsap.to(".test-box1", { 
-            rotation: 360,
-            duration: 2,
+gsap.to(".test-box1", { 
+  rotation: 360,
+  duration: 2,
+  scrollTrigger: {
+    trigger: ".test-box1",
+    markers: true,
+    scrub: true
+  }
 })
