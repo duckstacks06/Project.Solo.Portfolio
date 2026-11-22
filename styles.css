@@ -54,28 +54,32 @@
     justify-content: center;
 
     /* anim properties */
-    animation: ray-rotate 20s linear infinite;
+    animation: ray-rotate 25s linear infinite;
 }
 
 .ray {
     position: absolute;
-    width: 15em;
-    height: 1.5em;      
+    width: 3em;
+    height: 1.2em;      
     background-color: #FFE45E;
-    border-radius: 0.7em;
+    border-radius: 1em;
+
+    transform: translateX(7em);
+    transform-origin: center; 
 }
 
+/* individual ray with their gaps */
 .ray:nth-child(1) { rotate: 0deg; }
-.ray:nth-child(2) { rotate: 22.5deg; }
-.ray:nth-child(3) { rotate: 45deg; }
-.ray:nth-child(4) { rotate: 67.5deg; }
-.ray:nth-child(5) { rotate: 90deg; }
-.ray:nth-child(6) { rotate: 112.5deg; }
-.ray:nth-child(7) { rotate: 135deg; }
-.ray:nth-child(8) { rotate: 157.5deg; }
+.ray:nth-child(2) { rotate: 45deg; }
+.ray:nth-child(3) { rotate: 90deg; }
+.ray:nth-child(4) { rotate: 135deg; }
+.ray:nth-child(5) { rotate: 180deg; }
+.ray:nth-child(6) { rotate: 225deg; }
+.ray:nth-child(7) { rotate: 270deg; }
+.ray:nth-child(8) { rotate: 315deg; }
 
 @keyframes sun-enter{
-    0% { scale: 0.1; }
+    0% { scale: 0.1;  }
     90% { scale: 1.2; }
     100% { scale: 1; }
 }
