@@ -42,14 +42,6 @@
     text-shadow: 2px 2px 4px rgba(19, 19, 19, 0.264);
 }
 
-.sun-stroke{
-    width: 12em;       
-    height: 12em; 
-    background-color: #fade55;
-
-    z-index: 1;
-}
-
 .rays{
     /* placement properties */
     position: absolute;
@@ -62,7 +54,7 @@
     justify-content: center;
 
     /* anim properties */
-    animation: sun-rotate 20s linear infinite;
+    animation: ray-rotate 20s linear infinite;
 }
 
 .ray {
@@ -88,7 +80,7 @@
     100% { scale: 1; }
 }
 @keyframes ray-rotate{
-    0% { transform: rotate(360deg); }
+    0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
 
