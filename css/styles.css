@@ -1,7 +1,7 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 .sky{
-    background-color: #b2dff3;
+    background-color: #B4D7E2;
     position: relative; 
     min-height: 100vh;
 }
@@ -9,7 +9,7 @@
     /* placement properties */
     width: 10em;       
     height: 10em;      
-    position: absolute; inset: 50%; translate: -50% -50%;
+    position: fixed; inset: 50%; translate: -50% -50%;
     background-color: #FFE45E;
     border-radius: 50%; 
     border: none;
@@ -70,11 +70,6 @@
 .ray:nth-child(7) { rotate: 270deg; }
 .ray:nth-child(8) { rotate: 315deg; }
 
-@keyframes sun-enter{
-    0% { scale: 0.1;  }
-    90% { scale: 1.2; }
-    100% { scale: 1; }
-}
 @keyframes ray-rotate{
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
@@ -132,4 +127,10 @@
 }
 .text h1, .text h3 {
     margin: 0; 
+}
+
+.underwater{
+    background-color: #7Eb6ca;
+    position: relative; 
+    min-height: 100vh;
 }

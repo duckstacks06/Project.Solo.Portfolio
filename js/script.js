@@ -12,7 +12,17 @@ ScrollTrigger.create({
     start: "top top",     
     end: "bottom top",      
     pin: true,          
-    pinSpacing: false,     
+    pinSpacing: false,
+    anticipatePin: 1,      
+    markers: true          
+});
+ScrollTrigger.create({
+    trigger: ".surface",
+    start: "top top",     
+    end: "bottom top",      
+    pin: true,          
+    pinSpacing: false,
+    anticipatePin: 1,      
     markers: true          
 });
 
