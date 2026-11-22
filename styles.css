@@ -25,8 +25,7 @@
     font-weight: bold;
     font-size: large;
     letter-spacing: 0.05em;
-    color: #100007;
-    text-shadow: 2px 2px 4px rgba(19, 19, 19, 0.264);
+    color: #FFE45E;
     user-select: none;
 
     /* anim properties */
@@ -38,6 +37,9 @@
 }
 .sun:hover{
     scale: 1.1;
+
+    color: #100007;
+    text-shadow: 2px 2px 4px rgba(19, 19, 19, 0.264);
 }
 
 .sun-stroke{
@@ -58,7 +60,27 @@
     display: flex;
     align-items: center;
     justify-content: center;
+
+    /* anim properties */
+    animation: sun-rotate 20s linear infinite;
 }
+
+.ray {
+    position: absolute;
+    width: 15em;
+    height: 1.5em;      
+    background-color: #FFE45E;
+    border-radius: 0.7em;
+}
+
+.ray:nth-child(1) { rotate: 0deg; }
+.ray:nth-child(2) { rotate: 22.5deg; }
+.ray:nth-child(3) { rotate: 45deg; }
+.ray:nth-child(4) { rotate: 67.5deg; }
+.ray:nth-child(5) { rotate: 90deg; }
+.ray:nth-child(6) { rotate: 112.5deg; }
+.ray:nth-child(7) { rotate: 135deg; }
+.ray:nth-child(8) { rotate: 157.5deg; }
 
 @keyframes sun-enter{
     0% { scale: 0.1; }
