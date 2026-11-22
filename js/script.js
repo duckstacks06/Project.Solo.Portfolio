@@ -1,10 +1,10 @@
 gsap.registerPlugin(ScrollTrigger);
 
-/*
+
 const box1 = document.querySelector(".test-box1");
 const box2 = document.querySelector(".test-box2");
 const text = document.querySelector(".text");
-*/
+
 
 // sun
 const sun = document.querySelector(".sun");
@@ -16,11 +16,8 @@ let speedSlow = 20;
 let speedFast = 10;
 
 // use of functions
-/*
-parallax(box1, speedSlow);
 parallax(box2, speedFast);
 parallax(text, speedSlowest);
-*/
 
 parallax(sun, speedSlowest);
 
