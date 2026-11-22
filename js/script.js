@@ -6,6 +6,16 @@ let speedSlow = 50;
 let speedMed = 20;
 let speedFast = 10;
 
+// creating scroll trigger pins
+ScrollTrigger.create({
+    trigger: ".sky",
+    start: "top top",     
+    end: "bottom top",      
+    pin: true,          
+    pinSpacing: false,     
+    markers: true          
+});
+
 // selecting classes
 const sun = document.querySelector(".sun");
 const sunButton = document.querySelector(".sun");
