@@ -27,7 +27,7 @@ const parallaxLayers = document.querySelectorAll("[data-speed]");
 // gsap anims
 gsap.fromTo(".box-wrapper", 
   {
-    y: 25,
+    y: 50,
     scale: 0.8,
   },
   { 
@@ -45,7 +45,7 @@ gsap.fromTo(".box-wrapper",
 );
 gsap.fromTo(".text", 
   {
-    y: 25,
+    y: 50,
     scale: 0.8,
   },
   { 
@@ -62,15 +62,15 @@ gsap.fromTo(".text",
   }
 );
 
-/*gsap.fromTo(sun, 
+
+gsap.fromTo(".sun", 
     { scale: 0.1 }, 
     { 
         scale: 1, 
         duration: 1.5, 
-        ease: "elastic.out(1, 0.75)",
+        ease: "elastic.out(1, 0.75)"
     }
 );
-*/
 
 // functions
 document.addEventListener("mousemove", (event) => {
