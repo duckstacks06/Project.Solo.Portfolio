@@ -23,44 +23,35 @@ ScrollTrigger.create({
 
 // selecting classes
 const parallaxLayers = document.querySelectorAll("[data-speed]");
+const revealElements = document.querySelectorAll("[data-reveal]");
 
 // gsap anims
-gsap.fromTo(".box-wrapper", 
-  {
-    y: 50,
-    scale: 0.8,
-  },
-  { 
-    y: 0,
-    scale: 1,
-    duration: 1,
-    scrollTrigger: {
-      trigger: ".surface", // Starts when the surface section enters view
-      start: "20%, 80%",
-      end: "80%, 20%",
-      markers: true,
-      toggleActions: "restart pause resume pause"
-    }
-  }
-);
-gsap.fromTo(".text", 
-  {
-    y: 50,
-    scale: 0.8,
-  },
-  { 
-    y: 0,
-    scale: 1,
-    duration: 1,
-    scrollTrigger: {
-      trigger: ".surface", // Starts when the surface section enters view
-      start: "20%, 80%",
-      end: "80%, 20%",
-      markers: true,
-      toggleActions: "restart pause resume pause"
-    }
-  }
-);
+revealElements.forEach((element) => {
+    // Dynamically find the closest parent <section> to act as the ScrollTrigger target
+    const parentSection = element.closest("section");
+
+    gsap.fromTo(element, 
+        {
+            y: 50,
+            scale: 0.8,
+            opacity: 0
+        },
+        { 
+            y: 0,
+            scale: 1,
+            opacity: 1,
+            duration: 1.5,
+            ease: "circ.out", 
+            scrollTrigger: {
+                trigger: parentSection, // triggers depending on the parent it's in
+                start: "20% 80%",
+                end: "80% 20%",
+                markers: true, 
+                toggleActions: "restart pause resume pause"
+            }
+        }
+    );
+});
 
 
 gsap.fromTo(".sun", 
