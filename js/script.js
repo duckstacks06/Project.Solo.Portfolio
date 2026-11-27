@@ -1,11 +1,6 @@
 // plugins
 gsap.registerPlugin(ScrollTrigger);
 
-// var declarations
-let speedSlow = 50;
-let speedMed = 20;
-let speedFast = 10;
-
 // creating scroll trigger pins
 ScrollTrigger.create({
     trigger: ".sky",
@@ -27,12 +22,7 @@ ScrollTrigger.create({
 });
 
 // selecting classes
-const sun = document.querySelector(".sun");
-const sunButton = document.querySelector(".sun");
-
-const box1 = document.querySelector(".test-box1");
-const box2 = document.querySelector(".test-box2");
-const text = document.querySelector(".text");
+const parallaxLayers = document.querySelectorAll("[data-speed]");
 
 // gsap anims
 gsap.fromTo(".box-wrapper", 
@@ -72,7 +62,7 @@ gsap.fromTo(".text",
   }
 );
 
-gsap.fromTo(sun, 
+/*gsap.fromTo(sun, 
     { scale: 0.1 }, 
     { 
         scale: 1, 
@@ -80,22 +70,25 @@ gsap.fromTo(sun,
         ease: "elastic.out(1, 0.75)",
     }
 );
-
-// initializes mouse parallax
-parallax(box1, speedSlow);
-parallax(box2, speedMed);
-parallax(text, speedFast);
-
-parallax(sun, speedMed);
+*/
 
 // functions
-function parallax(box, speed){
-    document.addEventListener("mousemove", (event) => {
-        const x = (innerWidth / 2 - event.clientX) / speed;
-        const y = (innerHeight / 2 - event.clientY) / speed;  
+document.addEventListener("mousemove", (event) => {
+    // calculate the location of the mouse relative to the center
+    const mouseX = innerWidth / 2 - event.clientX;
+    const mouseY = innerHeight / 2 - event.clientY;  
+    
+    // loops through every layer
+    parallaxLayers.forEach((layer) => {
+        // takes the speed from the html attribute
+        const speed = parseFloat(layer.dataset.speed);
         
+        // calculates the position of the selected element
+        const x = mouseX / speed;
+        const y = mouseY / speed;
         
-        gsap.to(box, {
+        // gsap smoothens the movement
+        gsap.to(layer, {
             x: x,
             y: y,
             duration: 0.3,
@@ -103,7 +96,7 @@ function parallax(box, speed){
             overwrite: "auto" 
         });
     });
-}
+});
 
 sunButton.addEventListener("click", (event) => {
   console.log(`Click count: ${event}`);
