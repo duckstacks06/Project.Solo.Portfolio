@@ -38,9 +38,9 @@ const tabPanels = document.querySelectorAll(".tab-panel");
 // 3. CAROUSEL STATE CONFIGURATIONS
 // ==========================================================
 const videoPlaylists = {
-    gaming: ["bYDxZb0wbc0", "dQw4w9WgXcQ", "2b8TKhIz_ZY"],  
-    essays: ["-rfoYSmx0rk", "NIWyZmFSep0", "28nEZAKG1X4"], 
-    variety: ["PLvHmvYzySWq", "bYDxZb0wbc0", "dQw4w9WgXcQ"] 
+    gaming: ["bYDxZb0wbc0", "U0eDTm9f5xM", "q6FpoFk7X1M", "xfTHRW5aM3k"],  
+    essays: ["9831abC4p3k", "khIMDDhyvWk", "psvWJSydGG8", "Dy1_tpiHBSI"], 
+    variety: ["L8VFOwF0zCM", "_pTZMcX7424"] 
 };
 
 let currentCategory = "gaming";

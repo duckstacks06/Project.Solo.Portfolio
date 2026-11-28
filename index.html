@@ -45,7 +45,7 @@
             <!-- ==================== YOUTUBE ==================== -->
             <div class="tab-panel" id="youtube">
                 <h2>My YouTube Content</h2>
-                <p>Videos and content streaming analytics...</p>
+                <p>I do the funny video</p>
 
                 <div class="skills-dashboard">
                     <!-- SERVICES 1 -->
@@ -82,28 +82,35 @@
                 </div>
                 
                 <!-- SHOWREEL -->
-                 <h2>Showreel</h2>
-                <p class="video-counter-text">Video <span id="current-index-txt">1</span> of <span id="total-index-txt">3</span></p>
+                <h2>Showreel</h2>
+                <p>Content I made from the ground up</p>
                 <div class="carousel-container">
-                <!-- left arrow -->
-                <button class="carousel-arrow prev-btn" aria-label="Previous Video">‹</button>
 
-                <!-- responsive shadow player -->
-                <div class="embed-shadow-container">
-                    <div class="media-embed video-wrapper">
-                        <iframe id="portfolio-player" src="https://youtube.com/embed" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    <!-- responsive shadow player -->
+                    <div class="embed-shadow-container">
+                        <div class="media-embed video-wrapper">
+                            <iframe id="portfolio-player" src="https://youtube.com/embed" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        </div>
                     </div>
                 </div>
+                
+                    <div class="player-control-dashboard">
+                        
+                        <!-- Left: Sub-Category Playlist Switching Links -->
+                        <div class="video-category-nav">
+                            <button class="category-btn" data-category="gaming">Gaming</button>
+                            <button class="category-btn" data-category="essays">Video Essays</button>
+                            <button class="category-btn active" data-category="variety">Variety</button>
+                        </div>
 
-                <!-- right arrow -->
-                <button class="carousel-arrow next-btn" aria-label="Next Video">›</button>
-                </div>
-                <div class="video-category-nav">
-                    <!-- data-category links directly to JavaScript array libraries -->
-                    <button class="category-btn active" data-category="gaming">Gaming</button>
-                    <button class="category-btn" data-category="essays">Video Essays</button>
-                    <button class="category-btn" data-category="variety">Variety</button>
-                </div>
+                        <!-- Right: Sequential Navigation Arrows and Counter text -->
+                        <div class="carousel-controls-wrapper">
+                            <button class="carousel-arrow prev-btn" aria-label="Previous Video">‹</button>
+                            <p class="video-counter-text">Video <span id="current-index-txt">2</span> of <span id="total-index-txt">2</span></p>
+                            <button class="carousel-arrow next-btn" aria-label="Next Video">›</button>
+                        </div>
+
+                    </div>
             </div>
 
             <!-- ==================== MUSIC ==================== -->
