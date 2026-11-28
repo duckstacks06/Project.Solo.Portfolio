@@ -81,8 +81,28 @@
                     </div>
                 </div>
                 
-                <div class="media-embed video-wrapper">
-                    <iframe src="https://www.youtube.com/embed/bYDxZb0wbc0?si=caO-Wtk9uaBRt87I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                <!-- SHOWREEL -->
+                 <h2>Showreel</h2>
+                <p class="video-counter-text">Video <span id="current-index-txt">1</span> of <span id="total-index-txt">3</span></p>
+                <div class="carousel-container">
+                <!-- left arrow -->
+                <button class="carousel-arrow prev-btn" aria-label="Previous Video">‹</button>
+
+                <!-- responsive shadow player -->
+                <div class="embed-shadow-container">
+                    <div class="media-embed video-wrapper">
+                        <iframe id="portfolio-player" src="https://youtube.com/embed" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    </div>
+                </div>
+
+                <!-- right arrow -->
+                <button class="carousel-arrow next-btn" aria-label="Next Video">›</button>
+                </div>
+                <div class="video-category-nav">
+                    <!-- data-category links directly to JavaScript array libraries -->
+                    <button class="category-btn active" data-category="gaming">Gaming</button>
+                    <button class="category-btn" data-category="essays">Video Essays</button>
+                    <button class="category-btn" data-category="variety">Variety</button>
                 </div>
             </div>
 

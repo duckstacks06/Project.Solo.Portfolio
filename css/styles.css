@@ -317,14 +317,120 @@
 }
 
 /* ==========================================================
+   VIDEO NAVIGATION
+   ========================================================== */
+
+.video-category-nav {
+    display: flex;
+    justify-content: center;
+    gap: 0.8em;
+    margin: 2em auto 1em auto;
+    width: max-content;
+    background-color: #64A1b2;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 1000px;
+    padding: 0.25em;
+}
+
+.category-btn {
+    background: none;
+    border: none;
+    font-family: monospace;
+    font-size: 0.9em;
+    font-weight: bold;
+    color: #f0f0f0;
+    cursor: pointer;
+    padding: 0.4em 1.2em;
+    border-radius: 1000px;
+    transition: all 0.2s ease;
+}
+
+.category-btn:hover {
+    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.category-btn.active {
+    background-color: #ffffff;
+    color: #100007;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* CAROUSEL STRUCTURAL CONTAINER ROW */
+.carousel-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5em;
+    width: 100%;
+    margin-top: 1em;
+}
+
+/* Outer shield wrapping system allocating shadow glow space cleanly */
+.embed-shadow-container {
+    flex: 1;
+    max-width: 100%;
+    position: relative;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.45);
+    border-radius: 0.75em;
+}
+
+/* REUSABLE FLIGHT NAV CONTROL PLUGS */
+.carousel-arrow {
+    background-color: rgba(16, 0, 7, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    color: #f0f0f0;
+    font-size: 2.5em;
+    font-weight: bold;
+    cursor: pointer;
+    width: 1.5em;
+    height: 1.5em;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 0.15em; /* Optical alignment tweak */
+    transition: all 0.2s cubic-bezier(0.25, 1, 0.5, 1);
+    user-select: none;
+}
+
+.carousel-arrow:hover {
+    background-color: #ffffff;
+    color: #100007;
+    transform: scale(1.1);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.45);
+}
+
+/* VIDEO LAYER COUNTER DESCRIPTORS */
+.video-counter-text {
+    font-family: monospace;
+    font-size: 1em;
+    color: rgba(240, 240, 240, 0.6);
+    margin-top: 1.2em;
+    letter-spacing: 0.05em;
+}
+
+@media (max-width: 600px) {
+    .carousel-container {
+        gap: 0.5em;
+    }
+    .carousel-arrow {
+        font-size: 1.8em;
+    }
+}
+
+/* ==========================================================
    MEDIA EMBEDS
    ========================================================== */
 .media-embed {
     width: 100%;
-    margin-top: 2.5em;
+    background-color: rgba(16, 0, 7, 0.4);
     border-radius: 0.75em;
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    overflow: hidden; /* Slices off video frame sharp corners */
+    
+    /* 🌟 THE REPAIR LINES: Forces the iframe to respect the rounded mask layers */
+    position: relative;
+    z-index: 1; 
 }
 
 .video-wrapper {
@@ -334,4 +440,7 @@
 .video-wrapper iframe {
     width: 100%;
     height: 100%;
+    
+    /* 🌟 THE ALIGNMENT FIX: Removes inline typography baseline floor padding gaps */
+    display: block; 
 }

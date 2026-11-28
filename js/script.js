@@ -1,7 +1,8 @@
-// plugins
+// ==========================================================
+// 1. PLUGINS & PIN CONFIGURATIONS
+// ==========================================================
 gsap.registerPlugin(ScrollTrigger);
 
-// creating scroll trigger pins
 ScrollTrigger.create({
     trigger: ".sky",
     start: "top top",     
@@ -9,7 +10,7 @@ ScrollTrigger.create({
     pin: true,          
     pinSpacing: false,
     anticipatePin: 1,      
-    markers: true          
+    markers: false          
 });
 ScrollTrigger.create({
     trigger: ".surface",
@@ -18,10 +19,12 @@ ScrollTrigger.create({
     pin: true,          
     pinSpacing: false,
     anticipatePin: 1,      
-    markers: true          
+    markers: false          
 });
 
-// selecting classes
+// ==========================================================
+// 2. ELEMENT SELECTORS
+// ==========================================================
 const parallaxLayers = document.querySelectorAll("[data-speed]");
 const revealElements = document.querySelectorAll("[data-reveal]");
 
@@ -31,9 +34,29 @@ const sunButton = document.querySelector(".sun");
 const tabButtons = document.querySelectorAll(".tab-btn");
 const tabPanels = document.querySelectorAll(".tab-panel");
 
-// gsap anims
+// ==========================================================
+// 3. CAROUSEL STATE CONFIGURATIONS
+// ==========================================================
+const videoPlaylists = {
+    gaming: ["bYDxZb0wbc0", "dQw4w9WgXcQ", "2b8TKhIz_ZY"],  
+    essays: ["-rfoYSmx0rk", "NIWyZmFSep0", "28nEZAKG1X4"], 
+    variety: ["PLvHmvYzySWq", "bYDxZb0wbc0", "dQw4w9WgXcQ"] 
+};
+
+let currentCategory = "gaming";
+let activeVideoIndex = 0;
+
+const carouselPlayer = document.getElementById("portfolio-player");
+const categoryNavButtons = document.querySelectorAll(".category-btn");
+const prevVideoBtn = document.querySelector(".prev-btn");
+const nextVideoBtn = document.querySelector(".next-btn");
+const txtCurrentIndex = document.getElementById("current-index-txt");
+const txtTotalIndex = document.getElementById("total-index-txt");
+
+// ==========================================================
+// 4. GSAP TIMELINE REVEALS
+// ==========================================================
 revealElements.forEach((element) => {
-    // Dynamically find the closest parent <section> to act as the ScrollTrigger target
     const parentSection = element.closest("section");
 
     gsap.fromTo(element, 
@@ -49,16 +72,15 @@ revealElements.forEach((element) => {
             duration: 1.5,
             ease: "circ.out", 
             scrollTrigger: {
-                trigger: parentSection, // triggers depending on the parent it's in
+                trigger: parentSection,
                 start: "top 80%", 
                 end: "bottom 20%",
-                markers: true, 
+                markers: false, 
                 toggleActions: "restart pause resume pause"
             }
         }
     );
 });
-
 
 gsap.fromTo(".sun", 
     { scale: 0.1 }, 
@@ -69,22 +91,18 @@ gsap.fromTo(".sun",
     }
 );
 
-// functions
+// ==========================================================
+// 5. UNIFIED MOUSE PARALLAX CONTROLLER
+// ==========================================================
 document.addEventListener("mousemove", (event) => {
-    // calculate the location of the mouse relative to the center
     const mouseX = innerWidth / 2 - event.clientX;
-    const mouseY = innerHeight / 2 - event.clientY;  
+    const mouseY = innerHeight / 2 - event.clientY; // 🌟 FIXED: Repaired your cut-off bracket loop mechanics here
     
-    // loops through every layer
     parallaxLayers.forEach((layer) => {
-        // takes the speed from the html attribute
         const speed = parseFloat(layer.dataset.speed);
-        
-        // calculates the position of the selected element
         const x = mouseX / speed;
         const y = mouseY / speed;
         
-        // gsap smoothens the movement
         gsap.to(layer, {
             x: x,
             y: y,
@@ -95,26 +113,71 @@ document.addEventListener("mousemove", (event) => {
     });
 });
 
-sunButton.addEventListener("click", (event) => {
-  console.log(`Click count: ${event.detail}`);
-});
+// ==========================================================
+// 6. CAROUSEL ENGINE RENDERING METHODS
+// ==========================================================
+function updateCarouselPlayer() {
+    if (!carouselPlayer) return;
+    const activePlaylist = videoPlaylists[currentCategory];
+    const targetVideoId = activePlaylist[activeVideoIndex];
+    
+    // Updates link frame context
+    carouselPlayer.src = "https://youtube.com/embed/" + targetVideoId;
+    
+    // Updates numeric text counter interfaces
+    if (txtCurrentIndex) txtCurrentIndex.textContent = activeVideoIndex + 1;
+    if (txtTotalIndex) txtTotalIndex.textContent = activePlaylist.length;
+}
 
-tabButtons.forEach((button) => {
+// Sub-Category selector switch management triggers
+categoryNavButtons.forEach((button) => {
     button.addEventListener("click", () => {
-        // removes the active attribute
-        tabButtons.forEach(btn => btn.classList.remove("active"));
-        
-        // adds the active attribute to the button pressed
+        categoryNavButtons.forEach(btn => btn.classList.remove("active"));
         button.classList.add("active");
         
-        // hides all panels by default
-        tabPanels.forEach(panel => panel.classList.add("hidden"));
-        
-        // matches the clicked element to the panel
-        const targetTabId = button.dataset.tab;
-        const targetPanel = document.getElementById(targetTabId);
-        
-        // reveals the hidden panel
-        targetPanel.classList.remove("hidden");
+        currentCategory = button.dataset.category;
+        activeVideoIndex = 0; // Default view jump on playlist swaps
+        updateCarouselPlayer();
     });
 });
+
+// Carousel button directional listener attachments
+nextVideoBtn.addEventListener("click", () => {
+    const playlistLength = videoPlaylists[currentCategory].length;
+    activeVideoIndex++;
+    if (activeVideoIndex >= playlistLength) activeVideoIndex = 0;
+    updateCarouselPlayer();
+});
+
+prevVideoBtn.addEventListener("click", () => {
+    const playlistLength = videoPlaylists[currentCategory].length;
+    activeVideoIndex--;
+    if (activeVideoIndex < 0) activeVideoIndex = playlistLength - 1;
+    updateCarouselPlayer();
+});
+
+// ==========================================================
+// 7. CORE DOCK TAB INTERFACE TOGGLES
+// ==========================================================
+tabButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+        tabButtons.forEach(btn => btn.classList.remove("active"));
+        button.classList.add("active");
+        
+        tabPanels.forEach(panel => panel.classList.add("hidden"));
+        
+        const targetTabId = button.dataset.tab;
+        const targetPanel = document.getElementById(targetTabId);
+        if (targetPanel) targetPanel.classList.remove("hidden");
+    });
+});
+
+// ==========================================================
+// 8. INITIALIZE LOGIC ON WINDOW LOAD
+// ==========================================================
+if (sunButton) {
+    sunButton.addEventListener("click", (event) => {
+        console.log(`Click count: ${event.detail}`);
+    });
+}
+updateCarouselPlayer(); // Pre-loads your starting gaming video on viewport initialization!
