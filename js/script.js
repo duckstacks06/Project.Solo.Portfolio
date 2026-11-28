@@ -25,6 +25,12 @@ ScrollTrigger.create({
 const parallaxLayers = document.querySelectorAll("[data-speed]");
 const revealElements = document.querySelectorAll("[data-reveal]");
 
+const sun = document.querySelector(".sun");
+const sunButton = document.querySelector(".sun");
+
+const tabButtons = document.querySelectorAll(".tab-btn");
+const tabPanels = document.querySelectorAll(".tab-panel");
+
 // gsap anims
 revealElements.forEach((element) => {
     // Dynamically find the closest parent <section> to act as the ScrollTrigger target
@@ -44,10 +50,8 @@ revealElements.forEach((element) => {
             ease: "circ.out", 
             scrollTrigger: {
                 trigger: parentSection, // triggers depending on the parent it's in
-                /*
-                start: "20% 80%",
-                end: "80% 20%",
-                */
+                start: "top 80%", 
+                end: "bottom 20%",
                 markers: true, 
                 toggleActions: "restart pause resume pause"
             }
@@ -92,6 +96,25 @@ document.addEventListener("mousemove", (event) => {
 });
 
 sunButton.addEventListener("click", (event) => {
-  console.log(`Click count: ${event}`);
+  console.log(`Click count: ${event.detail}`);
 });
 
+tabButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+        // removes the active attribute
+        tabButtons.forEach(btn => btn.classList.remove("active"));
+        
+        // adds the active attribute to the button pressed
+        button.classList.add("active");
+        
+        // hides all panels by default
+        tabPanels.forEach(panel => panel.classList.add("hidden"));
+        
+        // matches the clicked element to the panel
+        const targetTabId = button.dataset.tab;
+        const targetPanel = document.getElementById(targetTabId);
+        
+        // reveals the hidden panel
+        targetPanel.classList.remove("hidden");
+    });
+});

@@ -1,5 +1,6 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
+/* -------------------------------------------------------------- */
 .sky{
     background-color: #B4D7E2;
     position: relative; 
@@ -75,6 +76,7 @@
     100% { transform: rotate(360deg); }
 }
 
+/* -------------------------------------------------------------- */
 .surface{
     background-color: #9CCCE0;
     position: relative; 
@@ -129,6 +131,7 @@
     margin: 0; 
 }
 
+/* -------------------------------------------------------------- */
 .underwater{
     background-color: #7Eb6ca;
     position: relative; 
@@ -136,6 +139,7 @@
     padding-top: 2em; 
 }
 .tab-navbar {
+    /* placement properties */
     position: sticky;
     top: 1.5em;
     z-index: 100;
@@ -143,6 +147,7 @@
     width: max-content;
     margin: 0 auto;
     
+    /* style properties */
     background-color: #64A1b2;
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
@@ -150,10 +155,11 @@
     border-radius: 1000px;
     padding: 0.3em;
 
+    /* flex properties */
     display: flex;
     align-items: center;
     gap: 0.2em;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 .tab-btn {
     background: none;
@@ -176,12 +182,30 @@
 .tab-btn.active {
     background-color:#f0f0f0;
     color: #000a10;
-    box-shadow:  0 10px 30px rgba(0, 0, 0, 0.15);
+    box-shadow:  0 10px 30px rgba(0, 0, 0, 0.1);
 }
 .tab-container {
-    max-width: 50em;
-    margin: 2em auto;
+    /* placement properties */
+    max-width: 50rem;
+    margin: 2rem auto;
     padding: 2em;
     font-family: monospace;
     color: #f0f0f0;
+    
+    /* style properties */
+    background-color: #64A1b2;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 1em;
+
+    /* flex properties */
+    display: flex;
+    align-items: center;
+    gap: 0.2em;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+.tab-panel.hidden {
+    display: none !important;
 }
