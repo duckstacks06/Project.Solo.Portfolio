@@ -154,7 +154,9 @@
     background-color: #7Eb6ca;
     position: relative; 
     min-height: 100vh;
+    height: auto;
     padding-top: 3rem; 
+    padding-bottom: 3rem;
     font-size: 0.8rem; 
 }
 
@@ -222,7 +224,6 @@
     text-align: center;
 }
 
-/* The Utility Class that handles visibility swapping */
 .tab-panel.hidden {
     display: none !important;
 }
@@ -246,12 +247,16 @@
     
     grid-template-columns: repeat(3, 1fr);
     gap: 2em;
-    background-color: rgba(16, 0, 7, 0.2);
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    background-color: #64A1b2;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 1em;
     padding: 2em;
     margin: 2.5em 0;
     text-align: left;
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1)
 }
 
 .dashboard-col h3 {
@@ -270,7 +275,7 @@
         width: calc(200% + 2em);
     }
     .services-extended .bullet-list.no-heading {
-        margin-top: 3.1em; 
+        margin-top: 3em; 
     }
 }
 
