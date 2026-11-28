@@ -132,5 +132,56 @@
 .underwater{
     background-color: #7Eb6ca;
     position: relative; 
-    min-height: 100vh;
+    min-height: 150vh;
+    padding-top: 2em; 
+}
+.tab-navbar {
+    position: sticky;
+    top: 1.5em;
+    z-index: 100;
+    
+    width: max-content;
+    margin: 0 auto;
+    
+    background-color: #64A1b2;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 1000px;
+    padding: 0.3em;
+
+    display: flex;
+    align-items: center;
+    gap: 0.2em;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+.tab-btn {
+    background: none;
+    border: none;
+    font-family: monospace;
+    font-size: 1em;
+    font-weight: bold;
+    color: #f0f0f0;
+    cursor: pointer;
+    
+    padding: 0.5em 1.8em; 
+    border-radius: 1000px; 
+    
+    transition: all 0.25s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.tab-btn:hover {
+    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.08);
+}
+.tab-btn.active {
+    background-color:#f0f0f0;
+    color: #000a10;
+    box-shadow:  0 10px 30px rgba(0, 0, 0, 0.15);
+}
+.tab-container {
+    max-width: 50em;
+    margin: 2em auto;
+    padding: 2em;
+    font-family: monospace;
+    color: #f0f0f0;
 }

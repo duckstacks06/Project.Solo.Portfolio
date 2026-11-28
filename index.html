@@ -35,7 +35,31 @@
     </section>
 
     <section class="underwater">
-        
+        <nav class="tab-navbar">
+            <button class="tab-btn active" data-tab="youtube">YouTube</button>
+            <button class="tab-btn" data-tab="music">Music</button>
+            <button class="tab-btn" data-tab="coding">Coding</button>
+        </nav>
+
+        <div class="tab-container">
+        <!-- YouTube (Visible by default) -->
+        <div class="tab-panel" id="youtube">
+            <h2>My YouTube Content</h2>
+            <p>Videos and content streaming analytics...</p>
+        </div>
+
+        <!-- Music -->
+        <div class="tab-panel hidden" id="music">
+            <h2>My Music Portfolio</h2>
+            <p>Tracks, beats, and audio production...</p>
+        </div>
+
+        <!-- Coding -->
+        <div class="tab-panel hidden" id="coding">
+            <h2>Coding Skills</h2>
+            <p>Codebases, components, and project repositories...</p>
+        </div>
+    </div>
     </section>
     
     <script src="js/gsap.min.js"></script>
