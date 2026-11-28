@@ -243,13 +243,13 @@
    ========================================================== */
 .skills-dashboard {
     display: grid;
-    /* 🌟 Forces 3 columns on desktop, adapts fluidly to single column on mobile */
-    grid-template-columns: repeat(auto-fit, minmax(16em, 1fr));
+    
+    grid-template-columns: repeat(3, 1fr);
     gap: 2em;
     background-color: rgba(16, 0, 7, 0.2);
     border: 1px solid rgba(255, 255, 255, 0.05);
     border-radius: 1em;
-    padding: 2.5em;
+    padding: 2em;
     margin: 2.5em 0;
     text-align: left;
 }
@@ -262,6 +262,16 @@
     padding-bottom: 0.4em;
     text-transform: uppercase;
     letter-spacing: 0.05em;
+}
+
+@media (min-width: 768px) {
+    .services-main h3 {
+        grid-column: 1 / span 2;
+        width: calc(200% + 2em);
+    }
+    .services-extended .bullet-list.no-heading {
+        margin-top: 3.1em; 
+    }
 }
 
 .bullet-list {
@@ -278,8 +288,6 @@
     position: relative;
     padding-left: 1.4em;
 }
-
-/* Places the custom bullet chevron */
 .bullet-list li::before {
     content: "›";
     position: absolute;
@@ -287,11 +295,24 @@
     color: #ffffff;
     font-size: 1.4em;
     font-weight: bold;
-    top: -0.05em;
+    top: -0.3em;
+}
+
+@media (max-width: 767px) {
+    .skills-dashboard {
+        grid-template-columns: 1fr;
+        gap: 1.5em;
+    }
+    .services-main h3 {
+        width: 100%;
+    }
+    .services-extended .bullet-list.no-heading {
+        margin-top: 0;
+    }
 }
 
 /* ==========================================================
-   5. MEDIA EMBEDS (YOUTUBE & SOUNDCLOUD)
+   MEDIA EMBEDS
    ========================================================== */
 .media-embed {
     width: 100%;
