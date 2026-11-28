@@ -1,16 +1,20 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
-/* -------------------------------------------------------------- */
-.sky{
+/* ==========================================================
+   SKY
+   ========================================================== */
+.sky {
     background-color: #B4D7E2;
     position: relative; 
     min-height: 100vh;
 }
-.sun{
-    /* placement properties */
+
+.sun {
     width: 10em;       
     height: 10em;      
-    position: fixed; inset: 50%; translate: -50% -50%;
+    position: fixed; 
+    inset: 50%; 
+    translate: -50% -50%;
     background-color: #FFE45E;
     border-radius: 50%; 
     border: none;
@@ -30,13 +34,13 @@
     color: #FFE45E;
     user-select: none;
 }
-.sun:hover{
+
+.sun:hover {
     color: #100007;
     text-shadow: 2px 2px 4px rgba(19, 19, 19, 0.264);
 }
 
-.rays{
-    /* placement properties */
+.rays {
     position: absolute;
     inset: 0;
     z-index: -1;
@@ -71,44 +75,55 @@
 .ray:nth-child(7) { rotate: 270deg; }
 .ray:nth-child(8) { rotate: 315deg; }
 
-@keyframes ray-rotate{
+@keyframes ray-rotate {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
 
-/* -------------------------------------------------------------- */
-.surface{
+/* ==========================================================
+   SURFACE
+   ========================================================== */
+.surface {
     background-color: #9CCCE0;
     position: relative; 
     height: 100vh;
 }
+
 .box-wrapper {
-    position: absolute; top: 50%; left: 30%; 
+    position: absolute; 
+    top: 50%; 
+    left: 30%; 
     translate: -50% -50%;
     z-index: 1;
 }
-.test-box1{
+
+.test-box1 {
     width: 5em;       
     height: 5em;      
     background-color: #f0f0f0; 
     overflow-x: clip;  
 }
-.test-box2{
+
+.test-box2 {
     width: 10em;       
     height: 10em;      
-    position: absolute; top: 50%; left: 45%;
+    position: absolute; 
+    top: 50%; 
+    left: 45%;
     translate: -50% -50%;     
     background-color: #89b1c0; 
       
     z-index: 2;
     overflow-x: clip;
 }
-.text{
+
+.text {
     /* placement properties */
     width: 30em;       
     height: 10em;      
-    position: absolute; top: 50%; left: 50%; 
-    
+    position: absolute; 
+    top: 50%; 
+    left: 50%; 
     translate: -50% -50%;       
     z-index: 10;
 
@@ -127,24 +142,29 @@
     text-shadow: 2px 2px 4px rgba(11, 11, 11, 0.1);
     user-select: none;
 }
+
 .text h1, .text h3 {
     margin: 0; 
 }
 
-/* -------------------------------------------------------------- */
-.underwater{
+/* ==========================================================
+   UNDERWATER
+   ========================================================== */
+.underwater {
     background-color: #7Eb6ca;
     position: relative; 
-    min-height: 150vh;
-    padding-top: 2em; 
+    min-height: 100vh;
+    padding-top: 3rem; 
+    font-size: 0.8rem; 
 }
+
 .tab-navbar {
     /* placement properties */
     position: sticky;
     top: 1.5em;
     z-index: 100;
-    
     width: max-content;
+    max-width: 90%;
     margin: 0 auto;
     
     /* style properties */
@@ -161,6 +181,7 @@
     gap: 0.2em;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
+
 .tab-btn {
     background: none;
     border: none;
@@ -172,40 +193,119 @@
     
     padding: 0.5em 1.8em; 
     border-radius: 1000px; 
-    
+    white-space: nowrap;
     transition: all 0.25s cubic-bezier(0.25, 1, 0.5, 1);
 }
+
 .tab-btn:hover {
     color: #ffffff;
-    background-color: rgba(255, 255, 255, 0.08);
+    background-color: rgba(255, 255, 255, 0.1);
 }
-.tab-btn.active {
-    background-color:#f0f0f0;
-    color: #000a10;
-    box-shadow:  0 10px 30px rgba(0, 0, 0, 0.1);
-}
-.tab-container {
-    /* placement properties */
-    max-width: 50rem;
-    margin: 2rem auto;
-    padding: 2em;
-    font-family: monospace;
-    color: #f0f0f0;
-    
-    /* style properties */
-    background-color: #64A1b2;
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-    padding: 1em;
 
-    /* flex properties */
-    display: flex;
-    align-items: center;
-    gap: 0.2em;
+.tab-btn.active {
+    background-color: #ffffff;
+    color: #100007;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
+
+.tab-container {
+    width: 90%;          
+    max-width: 60em;     
+    margin: 3em auto;
+    padding: 0 1em;
+    font-family: monospace;
+    color: #f0f0f0;
+}
+
+.tab-panel {
+    display: block;
+    text-align: center;
+}
+
+/* The Utility Class that handles visibility swapping */
 .tab-panel.hidden {
     display: none !important;
+}
+
+.tab-panel h2 {
+    font-size: 2em;
+    color: #ffffff;
+    margin-bottom: 0.5em;
+}
+
+.tab-panel > p {
+    color: rgba(240, 240, 240, 0.8);
+    margin-bottom: 2em;
+}
+
+/* ==========================================================
+   SKILLS DASHBOARD
+   ========================================================== */
+.skills-dashboard {
+    display: grid;
+    /* 🌟 Forces 3 columns on desktop, adapts fluidly to single column on mobile */
+    grid-template-columns: repeat(auto-fit, minmax(16em, 1fr));
+    gap: 2em;
+    background-color: rgba(16, 0, 7, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 1em;
+    padding: 2.5em;
+    margin: 2.5em 0;
+    text-align: left;
+}
+
+.dashboard-col h3 {
+    font-size: 1.3em;
+    color: #ffffff;
+    margin-bottom: 1em;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+    padding-bottom: 0.4em;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.bullet-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.bullet-list li {
+    font-size: 1.05em;
+    color: rgba(240, 240, 240, 0.9);
+    line-height: 1.7;
+    margin-bottom: 0.6em;
+    position: relative;
+    padding-left: 1.4em;
+}
+
+/* Places the custom bullet chevron */
+.bullet-list li::before {
+    content: "›";
+    position: absolute;
+    left: 0;
+    color: #ffffff;
+    font-size: 1.4em;
+    font-weight: bold;
+    top: -0.05em;
+}
+
+/* ==========================================================
+   5. MEDIA EMBEDS (YOUTUBE & SOUNDCLOUD)
+   ========================================================== */
+.media-embed {
+    width: 100%;
+    margin-top: 2.5em;
+    border-radius: 0.75em;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.video-wrapper {
+    aspect-ratio: 16 / 9;
+}
+
+.video-wrapper iframe {
+    width: 100%;
+    height: 100%;
 }

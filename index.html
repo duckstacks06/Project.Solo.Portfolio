@@ -42,24 +42,69 @@
         </nav>
 
         <div class="tab-container">
-        <!-- YouTube (Visible by default) -->
-        <div class="tab-panel" id="youtube">
-            <h2>My YouTube Content</h2>
-            <p>Videos and content streaming analytics...</p>
-        </div>
+            <!-- ==================== YOUTUBE ==================== -->
+            <div class="tab-panel" id="youtube">
+                <h2>My YouTube Content</h2>
+                <p>Videos and content streaming analytics...</p>
 
-        <!-- Music -->
-        <div class="tab-panel hidden" id="music">
-            <h2>My Music Portfolio</h2>
-            <p>Tracks, beats, and audio production...</p>
-        </div>
+                <div class="skills-dashboard">
+                    <!-- COLUMN 1: SERVICES -->
+                    <div class="dashboard-col">
+                        <h3>Services</h3>
+                        <ul class="bullet-list">
+                            <li>Video Editing & Trimming</li>
+                            <li>Audio Cleanups & Noise Gates</li>
+                            <li>Color Grading & Corrections</li>
+                            <li>Sound Design & Mixing</li>
+                        </ul>
+                    </div>
 
-        <!-- Coding -->
-        <div class="tab-panel hidden" id="coding">
-            <h2>Coding Skills</h2>
-            <p>Codebases, components, and project repositories...</p>
-        </div>
-    </div>
+                    <!-- COLUMN 2: SOFTWARE USED -->
+                    <div class="dashboard-col">
+                        <h3>Software Used</h3>
+                        <ul class="bullet-list">
+                            <li>DaVinci Resolve</li>
+                            <li>Premiere Pro</li>
+                            <li>FL Studio / Audition</li>
+                            <li>After Effects</li>
+                        </ul>
+                    </div>
+
+                    <!-- COLUMN 3: SKILLS -->
+                    <div class="dashboard-col">
+                        <h3>Skills</h3>
+                        <ul class="bullet-list">
+                            <li>High-Bitrate MP4 / MOV</li>
+                            <li>Optimized WAV Masters</li>
+                            <li>Project Source Files</li>
+                            <li>Thumbnail-Ready Assets</li>
+                        </ul>
+                    </div>
+                </div>
+
+                
+                <div class="media-embed video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/bYDxZb0wbc0?si=caO-Wtk9uaBRt87I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+            </div>
+
+            <!-- ==================== MUSIC ==================== -->
+            <div class="tab-panel hidden" id="music">
+                <h2>My Music Portfolio</h2>
+                <p>Tracks, beats, and audio production...</p>
+                
+                <div class="media-embed audio-wrapper">
+                    <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://soundcloud.com"></iframe>
+                </div>
+            </div>
+
+            <!-- ==================== CODING ==================== -->
+            <div class="tab-panel hidden" id="coding">
+                <h2>Coding Skills</h2>
+                <p>Codebases, components, and project repositories...</p>
+            </div>
+            
+        </div> 
     </section>
     
     <script src="js/gsap.min.js"></script>
