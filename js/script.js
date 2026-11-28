@@ -44,8 +44,10 @@ revealElements.forEach((element) => {
             ease: "circ.out", 
             scrollTrigger: {
                 trigger: parentSection, // triggers depending on the parent it's in
+                /*
                 start: "20% 80%",
                 end: "80% 20%",
+                */
                 markers: true, 
                 toggleActions: "restart pause resume pause"
             }
